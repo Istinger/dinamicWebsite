@@ -1,9 +1,8 @@
-# 🛠️ Sistema Web de Ferretería  
-Aplicación web desarrollada en **Java (JDK 8+)**, **JSP**, **HTML/CSS**, y **PostgreSQL** para la gestión de productos, usuarios, pedidos, servicios y funcionalidades administrativas.  
-Diseñada para ejecutarse en **Apache Tomcat**.
+# 🛠️ Sistema Web de Ferretería
+
+Aplicación web para la gestión de productos, usuarios, servicios y compras. Implementada con Java (JSP/Servlets), JDBC y PostgreSQL; preparada para desplegar en Apache Tomcat.
 
 ---
-
 ## 📌 Características principales
 
 ### 👥 Gestión de Usuarios
@@ -34,10 +33,10 @@ Diseñada para ejecutarse en **Apache Tomcat**.
 - Restricciones por página.
 - Auditoría mediante triggers PostgreSQL.
 
+
 ---
 
-## 🧱 Tecnologías utilizadas
-
+### 🧱 Tecnologías utilizadas
 ### Backend
 - **Java JDK 8+**
 - **Servlets**
@@ -69,19 +68,56 @@ Diseñada para ejecutarse en **Apache Tomcat**.
 
 ---
 
-## 📂 Estructura del proyecto
+## ✨ Funcionalidades principales
+- Gestión de usuarios: registro, inicio de sesión y control de accesos por rol.  
+- Carrito de compras: añadir productos, subtotal/total automático, historial de órdenes.  
+- Gestión de productos: CRUD, categorías, control de stock, ofertas.  
+- Servicios: catálogo de servicios (instalación, mantenimiento, corte).  
+- Seguridad y auditoría: triggers en PostgreSQL para registro de operaciones.
 
-ferreteria/
-│── src/
-│ ├── com.productos.datos/ # Conexión a la BD (PostgreSQL)
-│ ├── com.productos.negocio/ # Lógica de negocio
-│ └── com.productos.control/ # Servlets
-│
-│── WebContent/
-│ ├── pages JSP
-│ ├── css/
-│ ├── js/
-│ ├── imagenes/
-│ └── WEB-INF/
-│ ├── web.xml
-│ └── lib/ (drivers JDBC)
+---
+
+## 🚀 Preparar y ejecutar (rápido)
+1. Clonar repositorio:
+    git clone <URL-del-repo>
+2. Crear la base de datos en PostgreSQL y restaurar el backup (backup.sql).
+3. Configurar conexión JDBC en src/.../Conexion.java (URL, usuario, contraseña).
+4. Construir y desplegar:
+    - Desde IDE (Eclipse/NetBeans): exportar WAR y desplegar en Tomcat, o ejecutar desde el servidor integrado.
+    - Manual: exportar WAR → copiar a TOMCAT_HOME/webapps/ → iniciar Tomcat.
+5. Acceder: http://IP:8080/ferreteria/
+
+---
+
+## 🗂 Estructura del proyecto
+ferreteria/  
+├─ src/  
+│  ├─ com.productos.datos/  
+│  ├─ com.productos.negocio/  
+│  └─ com.productos.control/  
+├─ WebContent/  
+│  ├─ JSP/  
+│  ├─ css/  
+│  ├─ js/  
+│  ├─ imagenes/  
+│  └─ WEB-INF/  
+
+---
+
+## 🗄 Base de datos
+Tablas principales: usuario, productos, carrito, ordenes, servicios, auditoria.  
+Se recomiendan índices sobre campos de búsqueda y claves foráneas para integridad.
+
+---
+
+## ⚙️ Notas de configuración
+- Java: JDK 8+  
+- Ajustar pool de conexiones si es necesario.  
+- Verificar rutas de JSP y mappings en web.xml si hay cambios en el despliegue.
+
+---
+
+## 👤 Autor
+Proyecto desarrollado por Jossue Proaño. 
+
+
